@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="BookTracker - Track books and save quotes"
+    />
+    <meta name="theme-color" content="#f97316" />
+
+    <title>BookTracker - Reading Journal</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="assets/72.png" type="image/png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- iOS support -->
+    <link rel="apple-touch-icon" href="assets/apple-icon-180.png" />
+    <!-- todo: apple status bar color -->
+    <meta name="apple-mobile-web-app-status-bar" content="" />
+    <!-- pwa-asset-generator -->
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2048-2732.jpg"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2732-2048.jpg"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1668-2388.jpg"
+      media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2388-1668.jpg"
+      media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1536-2048.jpg"
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2048-1536.jpg"
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1640-2360.jpg"
+      media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2360-1640.jpg"
+      media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1668-2224.jpg"
+      media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2224-1668.jpg"
+      media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1620-2160.jpg"
+      media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2160-1620.jpg"
+      media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1488-2266.jpg"
+      media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2266-1488.jpg"
+      media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1320-2868.jpg"
+      media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2868-1320.jpg"
+      media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1206-2622.jpg"
+      media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2622-1206.jpg"
+      media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1260-2736.jpg"
+      media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2736-1260.jpg"
+      media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1290-2796.jpg"
+      media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2796-1290.jpg"
+      media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1179-2556.jpg"
+      media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2556-1179.jpg"
+      media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1170-2532.jpg"
+      media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2532-1170.jpg"
+      media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1284-2778.jpg"
+      media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2778-1284.jpg"
+      media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1125-2436.jpg"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2436-1125.jpg"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1242-2688.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2688-1242.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-828-1792.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1792-828.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1242-2208.jpg"
+      media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-2208-1242.jpg"
+      media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-750-1334.jpg"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1334-750.jpg"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-640-1136.jpg"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="assets/apple-splash-1136-640.jpg"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+  </head>
+  <body>
+    <nav class="bottom-nav">
+      <button data-page="library" class="nav-btn">
+        <span>Library</span>
+      </button>
+      <button data-page="add" class="nav-btn">
+        <span>Add</span>
+      </button>
+      <button data-page="quotes" class="nav-btn">
+        <span>Quotes</span>
+      </button>
+      <button data-page="stats" class="nav-btn">
+        <span>Statistics</span>
+      </button>
+    </nav>
+
+    <!-- network status indicator -->
+    <div id="network-status" class="network-status" style="display: none">
+      <span id="network-status-text">You are offline</span>
+    </div>
+    <div id="library" class="page active">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="reading">Reading</button>
+        <button class="filter-btn" data-filter="finished">Finished</button>
+        <button class="filter-btn" data-filter="wishlist">Wishlist</button>
+      </div>
+      <div id="books-grid" class="books-grid"></div>
+      <div id="empty-state" class="empty-state" style="display: none">
+        <p>No books in this category</p>
+        <button class="btn-secondary" onclick="showPage('add')">
+          Add your first book
+        </button>
+      </div>
+    </div>
+<div id="add" class="page">
+  <form id="book-form" class="book-form">
+      
+      <form id="book-form" class="book-form">
+        <div class="form-group">
+          <label for="book-title">Book title *</label>
+          <input
+            type="text"
+            id="book-title"
+            placeholder="e.g. The Witcher"
+            required=""
+          />
+        </div>
+        <div class="form-group">
+          <label for="book-author">Author *</label>
+          <input
+            type="text"
+            id="book-author"
+            placeholder="e.g. Andrzej Sapkowski"
+            required=""
+          />
+        </div>
+        <div class="form-group">
+          <label for="book-genre">Genre *</label>
+          <select id="book-genre" required="">
+            <option value="" disabled selected>Choose genre</option>
+            <option value="fiction">Fiction</option>
+            <option value="nonfiction">Non-fiction</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="scifi">Sci-Fi</option>
+            <option value="biography">Biography</option>
+            <option value="history">History</option>
+            <option value="poetry">Poetry</option>
+            <option value="thriller">Thriller</option>
+            <option value="romance">Romance</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="book-status">Status *</label>
+          <select id="book-status" required="">
+            <option value="" disabled selected>Choose status</option>
+            <option value="wishlist">To read</option>
+            <option value="reading">Currently reading</option>
+            <option value="finished">Finished</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Cover (optional)</label>
+          <div class="cover-buttons">
+            <button type="button" id="camera-btn" class="btn-secondary">
+              Take photo
+            </button>
+            <button type="button" id="gallery-btn" class="btn-secondary">
+              Choose from gallery
+            </button>
+          </div>
+          <input
+            type="file"
+            id="file-input"
+            accept="image/*"
+            style="display: none"
+          />
+          <div id="camera-container" style="display: none">
+            <video id="camera-video" autoplay="" playsinline=""></video>
+            <div class="camera-controls">
+              <button type="button" id="capture-btn" class="btn-primary">
+                Capture
+              </button>
+              <button
+                type="button"
+                id="cancel-camera-btn"
+                class="btn-secondary"
+              >
+                ✖ Cancel
+              </button>
+            </div>
+          </div>
+          <canvas id="cover-preview" style="display: none"></canvas>
+        </div>
+        <button type="submit" class="btn-primary">Save book</button>
+      </form>
+    </div>
+<div id="quotes" class="page">
+  <div style="max-width: 600px; margin: 0 auto;">
+    <button id="add-quote-btn" class="btn-primary btn-large">
+      Add quote
+    </button>
+    <div id="quotes-list" class="quotes-list"></div>
+    <div id="quotes-empty" class="empty-state" style="display: none">
+      <p>You don't have any quotes yet</p>
+    </div>
+  </div>
+</div>
+    <div id="stats" class="page">
+      <div class="chart-section">
+        <h2>Book genres</h2>
+        <canvas id="genre-chart" width="400" height="200"></canvas>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" id="stat-finished">0</div>
+          <div class="stat-label">Finished</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-reading">0</div>
+          <div class="stat-label">Currently reading</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-wishlist">0</div>
+          <div class="stat-label">Wishlist</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-quotes">0</div>
+          <div class="stat-label">Quotes</div>
+        </div>
+      </div>
+      <div id="stats-empty" class="empty-state" style="display: none">
+        <p>Add books to see statistics</p>
+      </div>
+    </div>
+    <div id="quote-modal" class="modal"></div>
+    <div id="book-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-book-modal">×</span>
+        <h2 id="modal-book-title"></h2>
+        <p id="modal-book-author"></p>
+        <p id="modal-book-genre"></p>
+        <div id="modal-book-status"></div>
+        <div id="modal-book-actions"></div>
+        <button id="delete-book-btn" class="btn-danger">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            style="vertical-align: middle; margin-right: 6px"
+          >
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path
+              d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+            ></path>
+          </svg>
+          Delete book
+        </button>
+      </div>
+    </div>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <!-- External libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCYV5Dl6ne106tugRHoaxgb2nGp5PH_caw",
+        authDomain: "booktracker-16e79.firebaseapp.com",
+        projectId: "booktracker-16e79",
+        storageBucket: "booktracker-16e79.firebasestorage.app",
+        messagingSenderId: "115241814402",
+        appId: "1:115241814402:web:0ea5965489c24e7223a79b",
+        measurementId: "G-VY2SYPZMNZ",
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- App scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/books.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
