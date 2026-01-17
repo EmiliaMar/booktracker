@@ -1,4 +1,4 @@
-const staticCacheName = "site-static";
+const staticCacheName = "site-static-v1";
 const assets = [
   "/",
   "/index.html",
@@ -15,10 +15,10 @@ const assets = [
 ];
 
 // 1. install service worker (install event)
-// evt - event object which represent install event
-self.addEventListener("install", (evt) => {
+// event - event object which represent install event
+self.addEventListener("install", (event) => {
   console.log("service worker installed");
-  evt.waitUntil(
+  event.waitUntil(
     caches.open(staticCacheName).then((cache) => {
       console.log("caching shell assets");
       cache.addAll(assets);
@@ -27,19 +27,30 @@ self.addEventListener("install", (evt) => {
 });
 
 // 2. activate service worker
-self.addEventListener("activate", (evt) => {
+self.addEventListener("activate", (event) => {
   console.log("service worker has been acvitated");
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      // console.log(keys);
+      // czeka az wszystkie stare cache zostana usuniete
+      return Promise.all(
+        keys
+          .filter((key) => key !== staticCacheName)
+          .map((key) => caches.delete(key))
+      );
+    })
+  );
 });
 
 // fetch event
 // fetch event occurs whenerver app want to get something from the server
 // sw moze przechwytywac requesty bo dziala jako proxy pomiedzy przegladarka a serwerem
-self.addEventListener("fetch", (evt) => {
-  // console.log("fetch event", evt);
+self.addEventListener("fetch", (event) => {
+  // console.log("fetch event", event);
   // najpierw sprawdzam czy to co chce pobrac jest juz w cache
-  evt.respondWith(
-    caches.match(evt.request).then((cacheRes) => {
-      return cacheRes || fetch(evt.request);
+  event.respondWith(
+    caches.match(event.request).then((cacheRes) => {
+      return cacheRes || fetch(event.request);
     })
   );
 });
