@@ -1,5 +1,5 @@
 const staticCacheName = "site-static-v1";
-const dynamicCache = "site-dynamic-v1";
+const dynamicCacheName = "site-dynamic-v1";
 const assets = [
   "/",
   "/index.html",
@@ -13,6 +13,7 @@ const assets = [
   "/pages/library.html",
   "/pages/quotes.html",
   "/pages/stats.html",
+  "/pages/fallback.html",
 ];
 
 // 1. install service worker (install event)
@@ -36,7 +37,7 @@ self.addEventListener("activate", (event) => {
       // czeka az wszystkie stare cache zostana usuniete
       return Promise.all(
         keys
-          .filter((key) => key !== staticCacheName)
+          .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
           .map((key) => caches.delete(key))
       );
     })
@@ -49,16 +50,19 @@ self.addEventListener("fetch", (event) => {
   // console.log("fetch event", event);
   // najpierw sprawdzam czy to co chce pobrac jest juz w cache
   event.respondWith(
-    caches.match(event.request).then((cacheRes) => {
-      return (
-        cacheRes ||
-        fetch(event.request).then((fetchRes) => {
-          return caches.open(dynamicCache).then((cache) => {
-            cache.put(event.request.url, fetchRes.clone());
-            return fetchRes;
-          });
-        })
-      );
-    })
+    caches
+      .match(event.request)
+      .then((cacheRes) => {
+        return (
+          cacheRes ||
+          fetch(event.request).then((fetchRes) => {
+            return caches.open(dynamicCacheName).then((cache) => {
+              cache.put(event.request.url, fetchRes.clone());
+              return fetchRes;
+            });
+          })
+        );
+      })
+      .catch(() => caches.match("/pages/fallback.html"))
   );
 });
