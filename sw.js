@@ -1,4 +1,5 @@
 const staticCacheName = "site-static-v1";
+const dynamicCache = "site-dynamic-v1";
 const assets = [
   "/",
   "/index.html",
@@ -42,7 +43,6 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// fetch event
 // fetch event occurs whenerver app want to get something from the server
 // sw moze przechwytywac requesty bo dziala jako proxy pomiedzy przegladarka a serwerem
 self.addEventListener("fetch", (event) => {
@@ -50,7 +50,15 @@ self.addEventListener("fetch", (event) => {
   // najpierw sprawdzam czy to co chce pobrac jest juz w cache
   event.respondWith(
     caches.match(event.request).then((cacheRes) => {
-      return cacheRes || fetch(event.request);
+      return (
+        cacheRes ||
+        fetch(event.request).then((fetchRes) => {
+          return caches.open(dynamicCache).then((cache) => {
+            cache.put(event.request.url, fetchRes.clone());
+            return fetchRes;
+          });
+        })
+      );
     })
   );
 });
