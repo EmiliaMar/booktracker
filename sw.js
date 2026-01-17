@@ -16,6 +16,17 @@ const assets = [
   "/pages/fallback.html",
 ];
 
+// cache size limit func
+const limitCacheSize = (name, size) => {
+  caches.open(name).then((cache) => {
+    cache.keys().then((keys) => {
+      if (keys.length > size) {
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+};
+
 // 1. install service worker (install event)
 // event - event object which represent install event
 self.addEventListener("install", (event) => {
@@ -58,11 +69,19 @@ self.addEventListener("fetch", (event) => {
           fetch(event.request).then((fetchRes) => {
             return caches.open(dynamicCacheName).then((cache) => {
               cache.put(event.request.url, fetchRes.clone());
+              // check cache size
+              limitCacheSize(dynamicCacheName, 15);
               return fetchRes;
             });
           })
         );
       })
-      .catch(() => caches.match("/pages/fallback.html"))
+      // catch error jesli nie udalo sie pobrac pliku z cache ani z sieci
+      .catch(() => {
+        // sprawdza czy ządany plik to strona html
+        if (event.request.url.indexOf(".html") > -1) {
+          return caches.match("/pages/fallback.html");
+        }
+      })
   );
 });
